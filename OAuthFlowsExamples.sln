@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{928781C8-80D6-4DCB-AEDC-1B7BAB07410E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthorizationServer", "AuthorizationServer", "{A69201D1-88E0-4F9B-8681-C01BE168C5CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationServer", "src\AuthorizationServer\AuthorizationServer\AuthorizationServer.csproj", "{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationServerDbSeeder", "src\AuthorizationServer\AuthorizationServerDbSeeder\AuthorizationServerDbSeeder.csproj", "{CB1BF547-3835-43B3-934E-D4CC9E70EB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCredentialsFlowClient", "src\Clients\ClientCredentialsFlowClient\ClientCredentialsFlowClient.csproj", "{EAE57339-7A04-4135-B471-3D56B51ED314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPasswordFlowClient", "src\Clients\OwnerPasswordFlowClient\OwnerPasswordFlowClient.csproj", "{F677B273-BA5A-4F5B-957C-16A4940CE796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitFlowClient", "src\Clients\ImplicitFlowClient\ImplicitFlowClient.csproj", "{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A69201D1-88E0-4F9B-8681-C01BE168C5CE} = {928781C8-80D6-4DCB-AEDC-1B7BAB07410E}
+		{5E7D5D5F-54D4-4E3C-9FB2-95728C04465B} = {928781C8-80D6-4DCB-AEDC-1B7BAB07410E}
+		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E} = {A69201D1-88E0-4F9B-8681-C01BE168C5CE}
+		{CB1BF547-3835-43B3-934E-D4CC9E70EB19} = {A69201D1-88E0-4F9B-8681-C01BE168C5CE}
+		{EAE57339-7A04-4135-B471-3D56B51ED314} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
+		{F677B273-BA5A-4F5B-957C-16A4940CE796} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
+		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1BF547-3835-43B3-934E-D4CC9E70EB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1BF547-3835-43B3-934E-D4CC9E70EB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1BF547-3835-43B3-934E-D4CC9E70EB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1BF547-3835-43B3-934E-D4CC9E70EB19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE57339-7A04-4135-B471-3D56B51ED314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE57339-7A04-4135-B471-3D56B51ED314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE57339-7A04-4135-B471-3D56B51ED314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE57339-7A04-4135-B471-3D56B51ED314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F677B273-BA5A-4F5B-957C-16A4940CE796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F677B273-BA5A-4F5B-957C-16A4940CE796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F677B273-BA5A-4F5B-957C-16A4940CE796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F677B273-BA5A-4F5B-957C-16A4940CE796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
