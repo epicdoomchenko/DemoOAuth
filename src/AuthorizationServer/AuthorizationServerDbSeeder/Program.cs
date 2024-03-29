@@ -13,6 +13,8 @@ var configuration = new ConfigurationBuilder()
 
 var connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException();
 
+var option = args.FirstOrDefault();
+
 var services = new ServiceCollection();
 services.AddLogging();
 services.AddDbContext<ApplicationDbContext>(options =>

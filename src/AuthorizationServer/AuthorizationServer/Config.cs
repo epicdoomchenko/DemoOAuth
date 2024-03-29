@@ -1,5 +1,6 @@
 ﻿using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityModel;
 
 namespace AuthorizationServer;
 
@@ -9,16 +10,18 @@ public static class Config
         new IdentityResource[]
         {
             new IdentityResources.OpenId(),
-            new IdentityResources.Profile(),
+            new IdentityResources.Profile()
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
         {
-            new("client_credentials"),
-            new("owner_password"),
-            new("implicit"),
-            new("authorization_code"),
+            new("m2m.client"),
+            new("console.client"),
+            new("api.client"),
+            new("ui_server.client"),
+            new("website", new[] { JwtClaimTypes.WebSite }),
+            new("worker_info", new[] {  "location", "team" }),
         };
 
     public static IEnumerable<Client> Clients =>
@@ -32,7 +35,7 @@ public static class Config
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                AllowedScopes = { "client_credentials" }
+                AllowedScopes = { "m2m.client" }
             },
             new()
             {
@@ -42,7 +45,7 @@ public static class Config
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                AllowedScopes = { "owner_password" }
+                AllowedScopes = { "console.client", "website", "worker_info" }
             },
             new()
             {
@@ -53,7 +56,7 @@ public static class Config
                 ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
                 RedirectUris = { "https://localhost:5001/signin-oidc", "https://localhost:5001/callback", },
 
-                AllowedScopes = { "openid", "implicit" },
+                AllowedScopes = { "openid", "api.client", "website", "worker_info" },
 
                 AllowAccessTokensViaBrowser = true
             },
@@ -66,9 +69,10 @@ public static class Config
                 RequirePkce = false,
 
                 RedirectUris = { "https://localhost:5002/callback" },
+                RequireConsent = true,
 
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "authorization_code" }
+                AllowedScopes = { "openid", "profile", "ui_server.client", "website", "worker_info" }
             },
         };
 }

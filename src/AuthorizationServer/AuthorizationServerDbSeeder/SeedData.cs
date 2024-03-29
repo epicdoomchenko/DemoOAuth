@@ -17,6 +17,9 @@ internal static class SeedData
             new Claim(JwtClaimTypes.Name, "Alice Smith"),
             new Claim(JwtClaimTypes.GivenName, "Alice"),
             new Claim(JwtClaimTypes.FamilyName, "Smith"),
+            new Claim("position", "Analysis"),
+            new Claim("team", "Team 1"),
+            new Claim("location", "LA"),
             new Claim(JwtClaimTypes.WebSite, "http://alice.com")
         ]);
         yield return (new ApplicationUser
@@ -29,7 +32,9 @@ internal static class SeedData
             new Claim(JwtClaimTypes.GivenName, "Bob"),
             new Claim(JwtClaimTypes.FamilyName, "Smith"),
             new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
-            new Claim("location", "somewhere")
+            new Claim("position", "manager"),
+            new Claim("team", "Team 1"),
+            new Claim("location", "Unknown")
         ]);
         yield return (new ApplicationUser
         {
@@ -41,7 +46,9 @@ internal static class SeedData
             new Claim(JwtClaimTypes.GivenName, "Sam"),
             new Claim(JwtClaimTypes.FamilyName, "Body"),
             new Claim(JwtClaimTypes.WebSite, "http://samb.com"),
-            new Claim("somebody", "once_told_me_the_world_is_gonna_roll_me")
+            new Claim("position", "Developer"),
+            new Claim("team", "Team 2"),
+            new Claim("location", "Rio")
         ]);
     }
 }

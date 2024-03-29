@@ -5,7 +5,7 @@
     { "username", "alice" },
     { "password", "Pass123$" },
     { "grant_type", "password" },
-    { "scope", "owner_password" }
+    { "scope", "console.client" }
 };
 
 var content = new FormUrlEncodedContent(body);
