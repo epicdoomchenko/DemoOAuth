@@ -1,0 +1,65 @@
+﻿@page "/"
+@using System.Text.Json
+@using System.IdentityModel.Tokens.Jwt
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+@inject IHttpClientFactory HttpClientFactory
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Token Claims</h1>
+<thead>
+<tr>
+    <th class="text-center">Type</th>
+    <th>Name</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var claim in Claims)
+{
+    <tr>
+        <td>@claim.Type</td>
+        <td>@claim.Value</td>
+    </tr>
+}
+</tbody>
+
+@code
+{
+    private record LinkResponse(string Link);
+
+    private record ClaimData(string Type, string Value);
+
+    private ClaimData[]? Claims { get; set; }
+    private string? RedirectUrl { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (HttpContextAccessor.HttpContext.Request.Cookies.TryGetValue("access_token", out var token) && !string.IsNullOrEmpty(token))
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtSecurityToken = handler.ReadJwtToken(token);
+            Claims = jwtSecurityToken.Claims.Select(c => new ClaimData(c.Type, c.Value)).ToArray();
+        }
+
+        return Task.CompletedTask;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!HttpContextAccessor.HttpContext.Request.Cookies.TryGetValue("access_token", out var token) || string.IsNullOrEmpty(token))
+        {
+            using var httpClient = HttpClientFactory.CreateClient("BackClient");
+            var response = await httpClient.GetAsync("getLink");
+            var content = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<LinkResponse>(content, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            }) ?? throw new ArgumentException(nameof(RedirectUrl));
+
+            NavigationManager.NavigateTo(result.Link);
+        }
+    }
+
+}

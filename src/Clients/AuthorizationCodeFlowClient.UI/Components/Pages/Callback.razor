@@ -1,0 +1,48 @@
+﻿@page "/callback"
+@using System.Text.Json
+@using Microsoft.AspNetCore.WebUtilities
+@using System.Text
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+@inject IHttpClientFactory HttpClientFactory
+@rendermode InteractiveServer
+
+<h3>Callback</h3>
+
+@code {
+
+    private record TokenResponse(string AccessToken);
+
+    protected override async Task OnInitializedAsync()
+    {
+        string code;
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("code", out var codeSV))
+        {
+            code = codeSV.ToString();
+        }
+        else
+        {
+            throw new ArgumentNullException(nameof(code));
+        }
+
+        using (var httpClient = HttpClientFactory.CreateClient("BackClient"))
+        {
+            var body = JsonSerializer.Serialize(new { Code = code });
+            var stringContent = new StringContent(body, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("getToken", stringContent);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var token = JsonSerializer.Deserialize<TokenResponse>(responseContent, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            }) ?? throw new ArgumentException(nameof(TokenResponse));
+            HttpContextAccessor.HttpContext.Response.Cookies.Append("access_token", token.AccessToken);
+        }
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+}

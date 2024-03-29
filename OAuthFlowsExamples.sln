@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPasswordFlowClient", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitFlowClient", "src\Clients\ImplicitFlowClient\ImplicitFlowClient.csproj", "{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationCodeFlowClient.UI", "src\Clients\AuthorizationCodeFlowClient.UI\AuthorizationCodeFlowClient.UI.csproj", "{4BAFD7EF-70BE-412A-8CFE-6472B4329C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationCodeFlowClient.Backend", "src\Clients\AuthorizationCodeFlowClient.Backend\AuthorizationCodeFlowClient.Backend.csproj", "{4BBA928A-9C20-4791-9401-57718F27C757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,8 @@ Global
 		{EAE57339-7A04-4135-B471-3D56B51ED314} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
 		{F677B273-BA5A-4F5B-957C-16A4940CE796} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
 		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
+		{4BAFD7EF-70BE-412A-8CFE-6472B4329C46} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
+		{4BBA928A-9C20-4791-9401-57718F27C757} = {5E7D5D5F-54D4-4E3C-9FB2-95728C04465B}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FAA67A2F-E8D6-4B92-A3C7-CD855EADFD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,5 +57,13 @@ Global
 		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D3BE228-7FBE-43E2-B7A6-9B8CC3DA42B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BAFD7EF-70BE-412A-8CFE-6472B4329C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BAFD7EF-70BE-412A-8CFE-6472B4329C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BAFD7EF-70BE-412A-8CFE-6472B4329C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BAFD7EF-70BE-412A-8CFE-6472B4329C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBA928A-9C20-4791-9401-57718F27C757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBA928A-9C20-4791-9401-57718F27C757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBA928A-9C20-4791-9401-57718F27C757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBA928A-9C20-4791-9401-57718F27C757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
